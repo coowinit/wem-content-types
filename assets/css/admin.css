@@ -1,0 +1,527 @@
+/* Layout */
+.wem-ct-wrap {
+	max-width: 1100px;
+}
+
+.wem-ct-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	margin: 22px 0 18px;
+}
+
+.wem-ct-header h1 {
+	margin: 0 0 5px;
+}
+
+.wem-ct-header p {
+	margin: 0;
+	color: #646970;
+}
+
+.wem-ct-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 22px 24px;
+	margin: 0 0 18px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .03);
+}
+
+.wem-ct-card h2 {
+	margin: 0 0 18px;
+	font-size: 16px;
+}
+
+.wem-ct-card-table {
+	overflow-x: auto;
+}
+
+/* Fields */
+.wem-ct-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px 24px;
+}
+
+.wem-ct-field label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 7px;
+}
+
+.wem-ct-field input[type="text"],
+.wem-ct-field textarea {
+	width: 100%;
+}
+
+.wem-ct-field p {
+	margin: 6px 0 0;
+	color: #646970;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.wem-ct-field p.wem-ct-example,
+.wem-ct-example {
+	color: #3c434a;
+}
+
+.wem-ct-example strong {
+	font-weight: 600;
+}
+
+.wem-ct-example code {
+	font-size: 11px;
+	padding: 1px 5px;
+}
+
+.wem-ct-field-full {
+	margin-top: 20px;
+}
+
+.wem-ct-section-help {
+	margin: -8px 0 16px;
+	color: #646970;
+}
+
+.wem-ct-footnote {
+	margin: 14px 0 0;
+	color: #646970;
+	line-height: 1.55;
+}
+
+/* Behavior cards */
+.wem-ct-checks {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.wem-ct-checks-four {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wem-ct-checks > label {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 14px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fafafa;
+}
+
+.wem-ct-checks input {
+	margin-top: 2px;
+}
+
+.wem-ct-checks span {
+	display: block;
+}
+
+.wem-ct-checks small {
+	display: block;
+	margin-top: 4px;
+	color: #646970;
+	line-height: 1.45;
+}
+
+.wem-ct-checks small.wem-ct-example {
+	margin-top: 8px;
+	color: #3c434a;
+}
+
+/* Supports and post type selectors */
+.wem-ct-supports,
+.wem-ct-object-types {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.wem-ct-supports > label,
+.wem-ct-object-types > label {
+	display: flex;
+	align-items: flex-start;
+	gap: 9px;
+	padding: 12px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fafafa;
+}
+
+.wem-ct-supports input,
+.wem-ct-object-types input {
+	margin-top: 2px;
+}
+
+.wem-ct-supports span,
+.wem-ct-object-types span {
+	display: block;
+	min-width: 0;
+}
+
+.wem-ct-supports strong,
+.wem-ct-object-types strong {
+	display: block;
+	font-weight: 500;
+}
+
+.wem-ct-supports small,
+.wem-ct-object-types small {
+	display: block;
+	margin-top: 4px;
+	color: #646970;
+	line-height: 1.45;
+}
+
+/* Tables */
+.wem-ct-table th,
+.wem-ct-table td {
+	padding: 12px;
+}
+
+.wem-ct-empty {
+	text-align: center !important;
+	padding: 40px 20px !important;
+}
+
+.wem-ct-empty p {
+	color: #646970;
+}
+
+.wem-ct-inline-code {
+	display: inline-block;
+	margin: 1px 4px 1px 0;
+}
+
+/* Form actions */
+.wem-ct-form .submit {
+	padding-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+	.wem-ct-header {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.wem-ct-grid,
+	.wem-ct-checks,
+	.wem-ct-checks-four,
+	.wem-ct-supports,
+	.wem-ct-object-types {
+		grid-template-columns: 1fr;
+	}
+
+	.wem-ct-card {
+		padding: 18px;
+	}
+
+	.wem-ct-table th:nth-child(n+3),
+	.wem-ct-table td:nth-child(n+3) {
+		display: none;
+	}
+}
+
+/* Generated-label note */
+.wem-ct-info {
+	margin-top: 20px;
+	padding: 12px 14px;
+	border-left: 3px solid #2271b1;
+	background: #f6f7f7;
+	color: #3c434a;
+	line-height: 1.55;
+}
+
+.wem-ct-info strong {
+	display: inline-block;
+	margin-right: 4px;
+}
+
+/* Dashicons picker */
+.wem-ct-icon-input-row {
+	display: flex;
+	align-items: stretch;
+	gap: 8px;
+}
+
+.wem-ct-icon-input-row input[type="text"] {
+	min-width: 0;
+}
+
+.wem-ct-icon-preview {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	min-width: 42px;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.wem-ct-icon-preview .dashicons {
+	width: 22px;
+	height: 22px;
+	font-size: 22px;
+	line-height: 22px;
+}
+
+.wem-ct-icon-picker {
+	display: grid;
+	grid-template-columns: repeat(6, 36px);
+	gap: 7px;
+	margin-top: 10px;
+}
+
+.wem-ct-icon-choice {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #fff;
+	color: #3c434a;
+	cursor: pointer;
+}
+
+.wem-ct-icon-choice:hover,
+.wem-ct-icon-choice:focus {
+	border-color: #2271b1;
+	color: #2271b1;
+	outline: none;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.wem-ct-icon-choice.is-selected {
+	border-color: #2271b1;
+	background: #f0f6fc;
+	color: #135e96;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.wem-ct-icon-choice .dashicons {
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+/* Advanced settings */
+.wem-ct-advanced {
+	padding: 0;
+}
+
+.wem-ct-advanced > summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 18px 24px;
+	cursor: pointer;
+	list-style: none;
+	user-select: none;
+}
+
+.wem-ct-advanced > summary::-webkit-details-marker {
+	display: none;
+}
+
+.wem-ct-advanced > summary::after {
+	content: "\f347";
+	font: normal 20px/1 dashicons;
+	color: #646970;
+}
+
+.wem-ct-advanced[open] > summary::after {
+	content: "\f343";
+}
+
+.wem-ct-advanced > summary span {
+	font-size: 16px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.wem-ct-advanced > summary small {
+	margin-left: auto;
+	color: #646970;
+	font-weight: 400;
+}
+
+.wem-ct-advanced[open] > summary {
+	border-bottom: 1px solid #dcdcde;
+}
+
+.wem-ct-advanced-body {
+	padding: 22px 24px 24px;
+}
+
+.wem-ct-checks-two {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wem-ct-compact-field {
+	max-width: 360px;
+	margin-top: 20px;
+}
+
+.wem-ct-compact-field input[type="number"] {
+	width: 100%;
+}
+
+@media (max-width: 782px) {
+	.wem-ct-checks-two {
+		grid-template-columns: 1fr;
+	}
+
+	.wem-ct-advanced > summary {
+		align-items: flex-start;
+		padding: 16px 18px;
+	}
+
+	.wem-ct-advanced > summary small {
+		display: none;
+	}
+
+	.wem-ct-advanced-body {
+		padding: 18px;
+	}
+
+	.wem-ct-icon-picker {
+		grid-template-columns: repeat(6, 36px);
+	}
+}
+
+/* Status and rewrite controls */
+.wem-ct-status-card .wem-ct-checks {
+	max-width: 760px;
+}
+
+.wem-ct-status {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 8px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.wem-ct-status.is-enabled {
+	background: #edfaef;
+	color: #116329;
+}
+
+.wem-ct-status.is-disabled {
+	background: #f0f0f1;
+	color: #646970;
+}
+
+.wem-ct-subsection {
+	margin-top: 28px;
+	padding-top: 24px;
+	border-top: 1px solid #dcdcde;
+}
+
+.wem-ct-subsection > h3 {
+	margin: 0 0 6px;
+	font-size: 15px;
+}
+
+.wem-ct-subsection > p {
+	margin: 0 0 16px;
+	color: #646970;
+}
+
+.wem-ct-rewrite-field {
+	max-width: 760px;
+	margin-top: 18px;
+}
+
+.wem-ct-rewrite-field input[type="text"] {
+	width: 100%;
+}
+
+/* Import / export tools */
+.wem-ct-tools-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.wem-ct-tool-card {
+	margin-bottom: 0;
+}
+
+.wem-ct-tool-card > p {
+	margin: -8px 0 18px;
+	color: #646970;
+	line-height: 1.6;
+}
+
+.wem-ct-tool-stats {
+	display: flex;
+	gap: 12px;
+	margin: 0 0 18px;
+}
+
+.wem-ct-tool-stats span {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 5px;
+	padding: 8px 10px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #f6f7f7;
+}
+
+.wem-ct-tool-stats strong {
+	font-size: 16px;
+}
+
+.wem-ct-tool-list {
+	margin: 0 0 20px 18px;
+	list-style: disc;
+	color: #3c434a;
+}
+
+.wem-ct-tool-list li {
+	margin-bottom: 7px;
+	line-height: 1.5;
+}
+
+.wem-ct-tool-info {
+	margin: 0 0 18px;
+}
+
+.wem-ct-import-form {
+	padding-top: 4px;
+}
+
+.wem-ct-import-form label,
+.wem-ct-import-form input[type="file"] {
+	display: block;
+}
+
+.wem-ct-import-form input[type="file"] {
+	margin: 8px 0 4px;
+	max-width: 100%;
+}
+
+.wem-ct-import-form .description {
+	margin: 0 0 14px;
+}
+
+@media (max-width: 900px) {
+	.wem-ct-tools-grid {
+		grid-template-columns: 1fr;
+	}
+}
