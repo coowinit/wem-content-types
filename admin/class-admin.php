@@ -39,8 +39,8 @@ class Admin {
 
 	public function menu(): void {
 		add_menu_page(
-			__( 'WEM Content Types', 'wem-content-types' ),
-			__( 'WEM Content Types', 'wem-content-types' ),
+			__( 'WEM 内容类型', 'wem-content-types' ),
+			__( 'WEM 内容类型', 'wem-content-types' ),
 			$this->capability(),
 			'wem-content-types',
 			[ $this, 'render_post_types_page' ],
@@ -50,8 +50,8 @@ class Admin {
 
 		add_submenu_page(
 			'wem-content-types',
-			__( 'Post Types', 'wem-content-types' ),
-			__( 'Post Types', 'wem-content-types' ),
+			__( '内容类型', 'wem-content-types' ),
+			__( '内容类型', 'wem-content-types' ),
 			$this->capability(),
 			'wem-content-types',
 			[ $this, 'render_post_types_page' ]
@@ -59,8 +59,8 @@ class Admin {
 
 		add_submenu_page(
 			'wem-content-types',
-			__( 'Taxonomies', 'wem-content-types' ),
-			__( 'Taxonomies', 'wem-content-types' ),
+			__( '分类法', 'wem-content-types' ),
+			__( '分类法', 'wem-content-types' ),
 			$this->capability(),
 			'wem-content-types-taxonomies',
 			[ $this, 'render_taxonomies_page' ]
@@ -68,8 +68,8 @@ class Admin {
 
 		add_submenu_page(
 			'wem-content-types',
-			__( 'Tools', 'wem-content-types' ),
-			__( 'Tools', 'wem-content-types' ),
+			__( '工具', 'wem-content-types' ),
+			__( '工具', 'wem-content-types' ),
 			$this->capability(),
 			'wem-content-types-tools',
 			[ $this, 'render_tools_page' ]
@@ -232,7 +232,7 @@ class Admin {
 
 			$enabled = ! array_key_exists( 'enabled', $config ) || ! empty( $config['enabled'] );
 			if ( ! $enabled ) {
-				$label .= ' — ' . __( 'Disabled', 'wem-content-types' );
+				$label .= ' — ' . __( '已禁用', 'wem-content-types' );
 			}
 
 			$wem_types[ $slug ] = $label;
@@ -270,7 +270,7 @@ class Admin {
 
 			$preserved_types[ $slug ] = sprintf(
 				/* translators: %s: post type slug. */
-				__( '%s — Unavailable', 'wem-content-types' ),
+				__( '%s — 当前不可用', 'wem-content-types' ),
 				$slug
 			);
 		}
@@ -338,7 +338,7 @@ class Admin {
 					[
 						'error' => sprintf(
 							/* translators: %s: comma-separated taxonomy labels. */
-							__( 'This post type is still attached to these WEM taxonomies: %s. Edit those taxonomies and remove the relationship before deleting the post type. If you only want to pause it, use Disable instead.', 'wem-content-types' ),
+							__( '该内容类型仍与以下 WEM 分类法关联：%s。请先编辑这些分类法并移除关联后再删除内容类型。如果只是暂时停用，请使用“禁用”。', 'wem-content-types' ),
 							implode( ', ', $dependent_taxonomies )
 						),
 					],
@@ -438,7 +438,7 @@ class Admin {
 		if ( '' === $json ) {
 			$this->redirect(
 				'export_error',
-				[ 'error' => __( 'The configuration could not be encoded as JSON.', 'wem-content-types' ) ],
+				[ 'error' => __( '配置无法编码为 JSON。', 'wem-content-types' ) ],
 				'wem-content-types-tools'
 			);
 		}
@@ -475,7 +475,7 @@ class Admin {
 		if ( false === $json ) {
 			$this->redirect(
 				'import_error',
-				[ 'error' => __( 'The uploaded JSON file could not be read.', 'wem-content-types' ) ],
+				[ 'error' => __( '无法读取上传的 JSON 文件。', 'wem-content-types' ) ],
 				'wem-content-types-tools'
 			);
 		}
@@ -484,7 +484,7 @@ class Admin {
 		if ( is_wp_error( $result ) ) {
 			$messages = array_slice( $result->get_error_messages(), 0, 8 );
 			if ( count( $result->get_error_messages() ) > 8 ) {
-				$messages[] = __( 'Additional validation errors were omitted. Fix the JSON structure and try again.', 'wem-content-types' );
+				$messages[] = __( '还有其他验证错误未显示，请修正 JSON 结构后重试。', 'wem-content-types' );
 			}
 
 			$this->redirect(
@@ -518,20 +518,20 @@ class Admin {
 
 		$size = isset( $file['size'] ) ? (int) $file['size'] : 0;
 		if ( $size <= 0 ) {
-			$errors->add( 'empty_file', __( 'Choose a non-empty WEM JSON file to import.', 'wem-content-types' ) );
+			$errors->add( 'empty_file', __( '请选择一个非空的 WEM JSON 文件进行导入。', 'wem-content-types' ) );
 		}
 		if ( $size > Transfer::MAX_IMPORT_BYTES ) {
-			$errors->add( 'file_too_large', __( 'The import file is too large. WEM configuration files must be 1 MB or smaller.', 'wem-content-types' ) );
+			$errors->add( 'file_too_large', __( '导入文件过大，WEM 配置文件不能超过 1 MB。', 'wem-content-types' ) );
 		}
 
 		$name = sanitize_file_name( $file['name'] ?? '' );
 		if ( 'json' !== strtolower( pathinfo( $name, PATHINFO_EXTENSION ) ) ) {
-			$errors->add( 'file_type', __( 'Choose a .json file exported by WEM Content Types.', 'wem-content-types' ) );
+			$errors->add( 'file_type', __( '请选择由 WEM Content Types 导出的 .json 文件。', 'wem-content-types' ) );
 		}
 
 		$tmp_name = isset( $file['tmp_name'] ) ? (string) $file['tmp_name'] : '';
 		if ( '' === $tmp_name || ! is_uploaded_file( $tmp_name ) ) {
-			$errors->add( 'invalid_upload', __( 'WordPress could not verify the uploaded file.', 'wem-content-types' ) );
+			$errors->add( 'invalid_upload', __( 'WordPress 无法验证上传的文件。', 'wem-content-types' ) );
 		}
 
 		return $errors->has_errors() ? $errors : true;
@@ -539,16 +539,16 @@ class Admin {
 
 	private function upload_error_message( int $error ): string {
 		$messages = [
-			UPLOAD_ERR_INI_SIZE   => __( 'The uploaded file exceeds the server upload limit.', 'wem-content-types' ),
-			UPLOAD_ERR_FORM_SIZE  => __( 'The uploaded file exceeds the allowed form size.', 'wem-content-types' ),
-			UPLOAD_ERR_PARTIAL    => __( 'The JSON file was only partially uploaded. Please try again.', 'wem-content-types' ),
-			UPLOAD_ERR_NO_FILE    => __( 'Choose a WEM JSON file to import.', 'wem-content-types' ),
-			UPLOAD_ERR_NO_TMP_DIR => __( 'The server is missing a temporary upload directory.', 'wem-content-types' ),
-			UPLOAD_ERR_CANT_WRITE => __( 'The server could not write the uploaded file.', 'wem-content-types' ),
-			UPLOAD_ERR_EXTENSION  => __( 'A server extension stopped the file upload.', 'wem-content-types' ),
+			UPLOAD_ERR_INI_SIZE   => __( '上传文件超过服务器允许的大小。', 'wem-content-types' ),
+			UPLOAD_ERR_FORM_SIZE  => __( '上传文件超过表单允许的大小。', 'wem-content-types' ),
+			UPLOAD_ERR_PARTIAL    => __( 'JSON 文件仅上传了一部分，请重试。', 'wem-content-types' ),
+			UPLOAD_ERR_NO_FILE    => __( '请选择一个 WEM JSON 文件进行导入。', 'wem-content-types' ),
+			UPLOAD_ERR_NO_TMP_DIR => __( '服务器缺少临时上传目录。', 'wem-content-types' ),
+			UPLOAD_ERR_CANT_WRITE => __( '服务器无法写入上传文件。', 'wem-content-types' ),
+			UPLOAD_ERR_EXTENSION  => __( '服务器扩展阻止了文件上传。', 'wem-content-types' ),
 		];
 
-		return $messages[ $error ] ?? __( 'The JSON file could not be uploaded.', 'wem-content-types' );
+		return $messages[ $error ] ?? __( 'JSON 文件上传失败。', 'wem-content-types' );
 	}
 
 	/**
@@ -582,13 +582,13 @@ class Admin {
 
 	private function guard(): void {
 		if ( ! current_user_can( $this->capability() ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'wem-content-types' ) );
+			wp_die( esc_html__( '你没有权限访问此页面。', 'wem-content-types' ) );
 		}
 	}
 
 	private function guard_action(): void {
 		if ( ! current_user_can( $this->capability() ) ) {
-			wp_die( esc_html__( 'You do not have permission to perform this action.', 'wem-content-types' ) );
+			wp_die( esc_html__( '你没有权限执行此操作。', 'wem-content-types' ) );
 		}
 	}
 
@@ -605,21 +605,21 @@ class Admin {
 		$tax_updated = absint( $_GET['tax_updated'] ?? 0 );
 
 		$messages = [
-			'post_type_created'   => __( 'Post type created successfully.', 'wem-content-types' ),
-			'post_type_updated'   => __( 'Post type updated successfully.', 'wem-content-types' ),
-			'post_type_deleted'   => __( 'Post type configuration deleted. Existing content in the database has not been deleted.', 'wem-content-types' ),
-			'post_type_enabled'   => __( 'Post type enabled. WordPress will register it again on the next request.', 'wem-content-types' ),
-			'post_type_disabled'  => __( 'Post type disabled. Its configuration and existing content remain stored.', 'wem-content-types' ),
-			'post_type_not_found' => __( 'The requested post type configuration was not found.', 'wem-content-types' ),
+			'post_type_created'   => __( '内容类型创建成功。', 'wem-content-types' ),
+			'post_type_updated'   => __( '内容类型更新成功。', 'wem-content-types' ),
+			'post_type_deleted'   => __( '内容类型配置已删除，数据库中的现有内容不会被删除。', 'wem-content-types' ),
+			'post_type_enabled'   => __( '内容类型已启用，WordPress 将在下一次请求时重新注册。', 'wem-content-types' ),
+			'post_type_disabled'  => __( '内容类型已禁用，其配置和现有内容仍会保留。', 'wem-content-types' ),
+			'post_type_not_found' => __( '未找到请求的内容类型配置。', 'wem-content-types' ),
 			'post_type_in_use'     => $error,
-			'taxonomy_created'    => __( 'Taxonomy created successfully.', 'wem-content-types' ),
-			'taxonomy_updated'    => __( 'Taxonomy updated successfully.', 'wem-content-types' ),
-			'taxonomy_deleted'    => __( 'Taxonomy configuration deleted. Existing term relationships in the database have not been deleted.', 'wem-content-types' ),
-			'taxonomy_enabled'    => __( 'Taxonomy enabled. WordPress will register it again on the next request.', 'wem-content-types' ),
-			'taxonomy_disabled'   => __( 'Taxonomy disabled. Its configuration, terms, and relationships remain stored.', 'wem-content-types' ),
-			'taxonomy_not_found'  => __( 'The requested taxonomy configuration was not found.', 'wem-content-types' ),
+			'taxonomy_created'    => __( '分类法创建成功。', 'wem-content-types' ),
+			'taxonomy_updated'    => __( '分类法更新成功。', 'wem-content-types' ),
+			'taxonomy_deleted'    => __( '分类法配置已删除，数据库中现有的分类项及关联关系不会被删除。', 'wem-content-types' ),
+			'taxonomy_enabled'    => __( '分类法已启用，WordPress 将在下一次请求时重新注册。', 'wem-content-types' ),
+			'taxonomy_disabled'   => __( '分类法已禁用，其配置、分类项和关联关系仍会保留。', 'wem-content-types' ),
+			'taxonomy_not_found'  => __( '未找到请求的分类法配置。', 'wem-content-types' ),
 			'import_success'      => sprintf(
-				__( 'Import completed. Post Types: %1$d added, %2$d updated. Taxonomies: %3$d added, %4$d updated.', 'wem-content-types' ),
+				__( '导入完成。内容类型：新增 %1$d 个，更新 %2$d 个；分类法：新增 %3$d 个，更新 %4$d 个。', 'wem-content-types' ),
 				$pt_added,
 				$pt_updated,
 				$tax_added,

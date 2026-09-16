@@ -56,37 +56,37 @@ class Validator {
 		$slug     = sanitize_key( $raw_slug );
 
 		if ( '' !== $raw_slug && $raw_slug !== $slug ) {
-			$errors->add( 'slug_format', __( 'Post type slug may contain only lowercase letters, numbers, underscores, and hyphens.', 'wem-content-types' ) );
+			$errors->add( 'slug_format', __( '内容类型标识只能包含小写英文字母、数字、下划线和连字符。', 'wem-content-types' ) );
 		}
 
 		if ( '' === $slug ) {
-			$errors->add( 'slug_required', __( 'Post type slug is required.', 'wem-content-types' ) );
+			$errors->add( 'slug_required', __( '请填写内容类型标识。', 'wem-content-types' ) );
 		} elseif ( strlen( $slug ) > 20 ) {
-			$errors->add( 'slug_length', __( 'Post type slug must be 20 characters or fewer.', 'wem-content-types' ) );
+			$errors->add( 'slug_length', __( '内容类型标识不能超过 20 个字符。', 'wem-content-types' ) );
 		} elseif ( in_array( $slug, $this->reserved_post_types, true ) ) {
-			$errors->add( 'slug_reserved', __( 'This slug is reserved by WordPress. Please choose another one.', 'wem-content-types' ) );
+			$errors->add( 'slug_reserved', __( '该标识已被 WordPress 保留，请使用其他标识。', 'wem-content-types' ) );
 		}
 
 		if ( $editing_slug && $slug !== $editing_slug ) {
-			$errors->add( 'slug_immutable', __( 'The slug cannot be changed after a post type has been created.', 'wem-content-types' ) );
+			$errors->add( 'slug_immutable', __( '内容类型创建后，内部标识不可修改。', 'wem-content-types' ) );
 		}
 
 		if ( ! $editing_slug && $this->storage->exists( $slug ) ) {
-			$errors->add( 'slug_exists', __( 'A WEM post type with this slug already exists.', 'wem-content-types' ) );
+			$errors->add( 'slug_exists', __( '已存在使用该标识的 WEM 内容类型。', 'wem-content-types' ) );
 		}
 
 		if ( ! $editing_slug && $slug && post_type_exists( $slug ) ) {
-			$errors->add( 'slug_conflict', __( 'A registered WordPress post type already uses this slug.', 'wem-content-types' ) );
+			$errors->add( 'slug_conflict', __( '已有 WordPress 内容类型使用该标识。', 'wem-content-types' ) );
 		}
 
 		$singular = sanitize_text_field( $input['singular_label'] ?? '' );
 		$plural   = sanitize_text_field( $input['plural_label'] ?? '' );
 
 		if ( '' === $singular ) {
-			$errors->add( 'singular_required', __( 'Singular label is required.', 'wem-content-types' ) );
+			$errors->add( 'singular_required', __( '请填写单数名称。', 'wem-content-types' ) );
 		}
 		if ( '' === $plural ) {
-			$errors->add( 'plural_required', __( 'Plural label is required.', 'wem-content-types' ) );
+			$errors->add( 'plural_required', __( '请填写复数名称。', 'wem-content-types' ) );
 		}
 
 		$menu_icon = sanitize_html_class( $input['menu_icon'] ?? 'dashicons-admin-post' );
@@ -94,14 +94,14 @@ class Validator {
 			$menu_icon = 'dashicons-admin-post';
 		}
 		if ( 0 !== strpos( $menu_icon, 'dashicons-' ) ) {
-			$errors->add( 'menu_icon_invalid', __( 'Menu icon must be a Dashicons class such as dashicons-products.', 'wem-content-types' ) );
+			$errors->add( 'menu_icon_invalid', __( '菜单图标必须使用 Dashicons 类名，例如 dashicons-products。', 'wem-content-types' ) );
 		}
 
 		$menu_position_raw = trim( (string) ( $input['menu_position'] ?? '' ) );
 		$menu_position     = null;
 		if ( '' !== $menu_position_raw ) {
 			if ( ! ctype_digit( $menu_position_raw ) || (int) $menu_position_raw < 2 || (int) $menu_position_raw > 100 ) {
-				$errors->add( 'menu_position_invalid', __( 'Menu position must be a whole number between 2 and 100, or left empty.', 'wem-content-types' ) );
+				$errors->add( 'menu_position_invalid', __( '菜单位置必须是 2 到 100 之间的整数，也可以留空。', 'wem-content-types' ) );
 			} else {
 				$menu_position = (int) $menu_position_raw;
 			}
@@ -150,37 +150,37 @@ class Validator {
 		$slug     = sanitize_key( $raw_slug );
 
 		if ( '' !== $raw_slug && $raw_slug !== $slug ) {
-			$errors->add( 'slug_format', __( 'Taxonomy slug may contain only lowercase letters, numbers, underscores, and hyphens.', 'wem-content-types' ) );
+			$errors->add( 'slug_format', __( '分类法标识只能包含小写英文字母、数字、下划线和连字符。', 'wem-content-types' ) );
 		}
 
 		if ( '' === $slug ) {
-			$errors->add( 'slug_required', __( 'Taxonomy slug is required.', 'wem-content-types' ) );
+			$errors->add( 'slug_required', __( '请填写分类法标识。', 'wem-content-types' ) );
 		} elseif ( strlen( $slug ) > 32 ) {
-			$errors->add( 'slug_length', __( 'Taxonomy slug must be 32 characters or fewer.', 'wem-content-types' ) );
+			$errors->add( 'slug_length', __( '分类法标识不能超过 32 个字符。', 'wem-content-types' ) );
 		} elseif ( in_array( $slug, $this->reserved_taxonomies, true ) ) {
-			$errors->add( 'slug_reserved', __( 'This taxonomy slug is reserved or may conflict with WordPress query variables. Please choose another one.', 'wem-content-types' ) );
+			$errors->add( 'slug_reserved', __( '该分类法标识已被保留，或可能与 WordPress 查询变量冲突，请使用其他标识。', 'wem-content-types' ) );
 		}
 
 		if ( $editing_slug && $slug !== $editing_slug ) {
-			$errors->add( 'slug_immutable', __( 'The taxonomy slug cannot be changed after creation.', 'wem-content-types' ) );
+			$errors->add( 'slug_immutable', __( '分类法创建后，内部标识不可修改。', 'wem-content-types' ) );
 		}
 
 		if ( ! $editing_slug && $this->storage->taxonomy_exists( $slug ) ) {
-			$errors->add( 'slug_exists', __( 'A WEM taxonomy with this slug already exists.', 'wem-content-types' ) );
+			$errors->add( 'slug_exists', __( '已存在使用该标识的 WEM 分类法。', 'wem-content-types' ) );
 		}
 
 		if ( ! $editing_slug && $slug && taxonomy_exists( $slug ) ) {
-			$errors->add( 'slug_conflict', __( 'A registered WordPress taxonomy already uses this slug.', 'wem-content-types' ) );
+			$errors->add( 'slug_conflict', __( '已有 WordPress 分类法使用该标识。', 'wem-content-types' ) );
 		}
 
 		$singular = sanitize_text_field( $input['singular_label'] ?? '' );
 		$plural   = sanitize_text_field( $input['plural_label'] ?? '' );
 
 		if ( '' === $singular ) {
-			$errors->add( 'singular_required', __( 'Singular label is required.', 'wem-content-types' ) );
+			$errors->add( 'singular_required', __( '请填写单数名称。', 'wem-content-types' ) );
 		}
 		if ( '' === $plural ) {
-			$errors->add( 'plural_required', __( 'Plural label is required.', 'wem-content-types' ) );
+			$errors->add( 'plural_required', __( '请填写复数名称。', 'wem-content-types' ) );
 		}
 
 		$object_types = isset( $input['object_types'] ) && is_array( $input['object_types'] )
@@ -188,7 +188,7 @@ class Validator {
 			: [];
 
 		if ( empty( $object_types ) ) {
-			$errors->add( 'object_type_required', __( 'Select at least one post type to attach this taxonomy to.', 'wem-content-types' ) );
+			$errors->add( 'object_type_required', __( '请至少选择一个要关联此分类法的内容类型。', 'wem-content-types' ) );
 		}
 
 		$registered_post_types = get_post_types( [], 'names' );
@@ -216,7 +216,7 @@ class Validator {
 			if ( ! in_array( $object_type, $known_post_types, true ) ) {
 				$errors->add(
 					'object_type_invalid',
-					sprintf( __( 'The selected post type "%s" is not currently available.', 'wem-content-types' ), $object_type )
+					sprintf( __( '所选内容类型“%s”当前不可用。', 'wem-content-types' ), $object_type )
 				);
 			}
 		}
@@ -261,12 +261,12 @@ class Validator {
 
 		$sanitized = sanitize_title( $raw );
 		if ( '' === $sanitized ) {
-			$errors->add( 'rewrite_slug_invalid', __( 'Rewrite slug must contain letters or numbers.', 'wem-content-types' ) );
+			$errors->add( 'rewrite_slug_invalid', __( 'Rewrite 标识必须至少包含字母或数字。', 'wem-content-types' ) );
 			return $fallback;
 		}
 
 		if ( strlen( $sanitized ) > 200 ) {
-			$errors->add( 'rewrite_slug_length', __( 'Rewrite slug is too long.', 'wem-content-types' ) );
+			$errors->add( 'rewrite_slug_length', __( 'Rewrite 标识过长。', 'wem-content-types' ) );
 		}
 
 		return $sanitized;

@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: WEM Content Types
- * Description: A lightweight content type manager for registering WordPress custom post types and taxonomies with a clean, extensible architecture.
- * Version: 1.0.0
+ * Description: 一款轻量、独立的 WordPress 内容类型管理插件，用于管理自定义内容类型、分类法、Rewrite 与 JSON 导入导出。
+ * Version: 1.0.1
  * Author: WEM
  * Text Domain: wem-content-types
  * Requires at least: 6.4
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WEM_CT_VERSION', '1.0.0' );
+define( 'WEM_CT_VERSION', '1.0.1' );
 define( 'WEM_CT_FILE', __FILE__ );
 define( 'WEM_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WEM_CT_URL', plugin_dir_url( __FILE__ ) );

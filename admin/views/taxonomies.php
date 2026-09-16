@@ -6,11 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wrap wem-ct-wrap">
 	<div class="wem-ct-header">
 		<div>
-			<h1><?php esc_html_e( 'Taxonomies', 'wem-content-types' ); ?></h1>
-			<p><?php esc_html_e( 'Create reusable classification structures and attach them to one or more post types.', 'wem-content-types' ); ?></p>
+			<h1><?php esc_html_e( '分类法', 'wem-content-types' ); ?></h1>
+			<p><?php esc_html_e( '创建可复用的分类结构，并将其关联到一个或多个内容类型。', 'wem-content-types' ); ?></p>
 		</div>
 		<a class="page-title-action" href="<?php echo esc_url( add_query_arg( [ 'page' => 'wem-content-types-taxonomies', 'action' => 'add' ], admin_url( 'admin.php' ) ) ); ?>">
-			<?php esc_html_e( 'Add Taxonomy', 'wem-content-types' ); ?>
+			<?php esc_html_e( '新建分类法', 'wem-content-types' ); ?>
 		</a>
 	</div>
 
@@ -18,11 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<table class="widefat fixed striped wem-ct-table">
 			<thead>
 			<tr>
-				<th><?php esc_html_e( 'Name', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Slug', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Status', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Attached To', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Type', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '名称', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '标识（Slug）', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '状态', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '关联内容类型', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '类型', 'wem-content-types' ); ?></th>
 				<th><?php esc_html_e( 'REST', 'wem-content-types' ); ?></th>
 			</tr>
 			</thead>
@@ -30,8 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( empty( $items ) ) : ?>
 				<tr>
 					<td colspan="6" class="wem-ct-empty">
-						<strong><?php esc_html_e( 'No custom taxonomies yet.', 'wem-content-types' ); ?></strong>
-						<p><?php esc_html_e( 'Create a taxonomy such as Product Category, Industry, Region, or Application.', 'wem-content-types' ); ?></p>
+						<strong><?php esc_html_e( '还没有自定义分类法。', 'wem-content-types' ); ?></strong>
+						<p><?php esc_html_e( '可以创建 Product Category、Industry、Region、Application 等分类法。', 'wem-content-types' ); ?></p>
 					</td>
 				</tr>
 			<?php else : ?>
@@ -56,13 +56,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<td>
 							<strong><a href="<?php echo esc_url( $edit_url ); ?>"><?php echo esc_html( $item['plural_label'] ?? $slug ); ?></a></strong>
 							<div class="row-actions">
-								<span class="edit"><a href="<?php echo esc_url( $edit_url ); ?>"><?php esc_html_e( 'Edit', 'wem-content-types' ); ?></a> | </span>
-								<span class="wem-toggle"><a href="<?php echo esc_url( $toggle_url ); ?>"><?php echo esc_html( $enabled ? __( 'Disable', 'wem-content-types' ) : __( 'Enable', 'wem-content-types' ) ); ?></a> | </span>
-								<span class="trash"><a href="<?php echo esc_url( $delete_url ); ?>" onclick="return confirm('<?php echo esc_js( __( 'Delete this taxonomy configuration? Existing terms and relationships will remain in the database.', 'wem-content-types' ) ); ?>');"><?php esc_html_e( 'Delete', 'wem-content-types' ); ?></a></span>
+								<span class="edit"><a href="<?php echo esc_url( $edit_url ); ?>"><?php esc_html_e( '编辑', 'wem-content-types' ); ?></a> | </span>
+								<span class="wem-toggle"><a href="<?php echo esc_url( $toggle_url ); ?>"><?php echo esc_html( $enabled ? __( '禁用', 'wem-content-types' ) : __( '启用', 'wem-content-types' ) ); ?></a> | </span>
+								<span class="trash"><a href="<?php echo esc_url( $delete_url ); ?>" onclick="return confirm('<?php echo esc_js( __( '确定删除此分类法配置吗？已有分类项及其关联关系会继续保留。', 'wem-content-types' ) ); ?>');"><?php esc_html_e( '删除', 'wem-content-types' ); ?></a></span>
 							</div>
 						</td>
 						<td><code><?php echo esc_html( $slug ); ?></code></td>
-						<td><span class="wem-ct-status <?php echo $enabled ? 'is-enabled' : 'is-disabled'; ?>"><?php echo esc_html( $enabled ? __( 'Enabled', 'wem-content-types' ) : __( 'Disabled', 'wem-content-types' ) ); ?></span></td>
+						<td><span class="wem-ct-status <?php echo $enabled ? 'is-enabled' : 'is-disabled'; ?>"><?php echo esc_html( $enabled ? __( '已启用', 'wem-content-types' ) : __( '已禁用', 'wem-content-types' ) ); ?></span></td>
 						<td>
 							<?php if ( $object_types ) : ?>
 								<?php foreach ( $object_types as $object_type ) : ?>
@@ -72,8 +72,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 								—
 							<?php endif; ?>
 						</td>
-						<td><?php echo ! empty( $item['hierarchical'] ) ? esc_html__( 'Hierarchical', 'wem-content-types' ) : esc_html__( 'Tag style', 'wem-content-types' ); ?></td>
-						<td><?php echo ! empty( $item['show_in_rest'] ) ? esc_html__( 'Yes', 'wem-content-types' ) : esc_html__( 'No', 'wem-content-types' ); ?></td>
+						<td><?php echo ! empty( $item['hierarchical'] ) ? esc_html__( '层级式', 'wem-content-types' ) : esc_html__( '标签式', 'wem-content-types' ); ?></td>
+						<td><?php echo ! empty( $item['show_in_rest'] ) ? esc_html__( '是', 'wem-content-types' ) : esc_html__( '否', 'wem-content-types' ); ?></td>
 					</tr>
 				<?php endforeach; ?>
 			<?php endif; ?>

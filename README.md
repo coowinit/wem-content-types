@@ -431,10 +431,10 @@ wem-content-types.zip
 启用后后台会出现：
 
 ```text
-WEM Content Types
-├── Post Types
-├── Taxonomies
-└── Tools
+WEM 内容类型
+├── 内容类型
+├── 分类法
+└── 工具
 ```
 
 ---
@@ -444,47 +444,47 @@ WEM Content Types
 进入：
 
 ```text
-WEM Content Types
-→ Post Types
-→ Add Post Type
+WEM 内容类型
+→ 内容类型
+→ 新建内容类型
 ```
 
 基础设置包括：
 
 ```text
-Post Type Slug
-Menu Icon
-Singular Label
-Plural Label
-Description
+内容类型标识（Slug）
+菜单图标
+单数名称
+复数名称
+说明
 ```
 
 Behavior 包括：
 
 ```text
-Public
-Archive
-REST API / Block Editor
+公开
+归档页
+REST API / 区块编辑器
 ```
 
 Supports 包括：
 
 ```text
-Title
-Editor
-Featured Image
-Excerpt
-Revisions
-Author
-Comments
-Page Attributes
-Custom Fields
+标题
+编辑器
+特色图片
+摘要
+修订版本
+作者
+评论
+页面属性
+自定义字段
 ```
 
 低频参数放在：
 
 ```text
-Advanced Settings
+高级设置
 ```
 
 中，避免普通配置页面过于复杂。
@@ -496,28 +496,28 @@ Advanced Settings
 进入：
 
 ```text
-WEM Content Types
-→ Taxonomies
-→ Add Taxonomy
+WEM 内容类型
+→ 分类法
+→ 新建分类法
 ```
 
 基础设置包括：
 
 ```text
-Taxonomy Slug
-Singular Label
-Plural Label
-Description
-Attach To
+分类法标识（Slug）
+单数名称
+复数名称
+说明
+关联到内容类型
 ```
 
 Behavior 包括：
 
 ```text
-Public
-Hierarchical
-Admin Column
-REST API / Block Editor
+公开
+层级式
+后台列表列
+REST API / 区块编辑器
 ```
 
 Taxonomy 可以关联：
@@ -591,9 +591,9 @@ products
 进入：
 
 ```text
-WEM Content Types
-→ Tools
-→ Export Structure
+WEM 内容类型
+→ 工具
+→ 导出结构
 ```
 
 插件会生成类似：
@@ -619,9 +619,9 @@ JSON 中会保存当前网站的内容结构配置。
 进入：
 
 ```text
-WEM Content Types
-→ Tools
-→ Import Structure
+WEM 内容类型
+→ 工具
+→ 导入结构
 ```
 
 导入采用：
@@ -687,7 +687,7 @@ JSON 中已经存在的 WEM Slug
 {
   "format": "wem-content-types",
   "schema_version": 1,
-  "plugin_version": "1.0.0"
+  "plugin_version": "1.0.1"
 }
 ```
 
@@ -1042,6 +1042,24 @@ Product Category
 
 ## 版本说明
 
+### v1.0.1
+
+后台中文化维护版本。
+
+完成：
+
+- 顶级菜单调整为“WEM 内容类型”
+- “内容类型 / 分类法 / 工具”后台页面中文化
+- 内容类型与分类法编辑页字段名称、说明、示例和按钮中文化
+- Supports、Rewrite、REST 等标准术语保留必要英文并补充中文说明
+- 验证提示、导入导出提示和状态信息中文化
+- 插件后台说明文字统一为中文
+- 不修改现有配置结构、Slug、Hooks、Options 或 JSON Schema
+
+v1.0.1 与 v1.0.0 数据完全兼容，无需迁移配置。
+
+---
+
 ### v1.0.0
 
 首个稳定版本。
@@ -1070,27 +1088,29 @@ v1.0.0 兼容此前 v0.x 开发版本保存的配置，无需手动迁移数据�
 
 ## 后续方向
 
-WEM Content Types v1.0.0 已经完成内容结构层。
+WEM Content Types v1.0.1 已经稳定完成内容结构层。
 
 后续不会为了增加功能而不断扩大核心插件。
 
-未来更适合通过独立模块继续扩展：
+字段能力已由独立插件继续扩展：
 
 ```text
 wem-content-fields
 ```
 
-用于：
+当前用于：
 
 - Field Groups
-- Text
-- Textarea
-- Number
-- URL
-- Select
-- Checkbox
-- Image
-- File
+- 单行文本
+- 多行文本
+- 微型富文本
+- 图片
+- PDF 文件
+- 下拉框
+- 多选框
+- Post Meta
+- REST API
+- JSON Import / Export
 
 进一步再由：
 

@@ -6,65 +6,65 @@ if ( ! defined( 'ABSPATH' ) ) {
 $is_edit = ! empty( $slug );
 $all_supports = [
 	'title' => [
-		'label'   => __( 'Title', 'wem-content-types' ),
-		'example' => __( 'Example: Product name.', 'wem-content-types' ),
+		'label'   => __( '标题', 'wem-content-types' ),
+		'example' => __( '示例：产品名称。', 'wem-content-types' ),
 	],
 	'editor' => [
-		'label'   => __( 'Editor', 'wem-content-types' ),
-		'example' => __( 'Example: Product overview or long-form content.', 'wem-content-types' ),
+		'label'   => __( '编辑器', 'wem-content-types' ),
+		'example' => __( '示例：产品概述或长篇正文内容。', 'wem-content-types' ),
 	],
 	'thumbnail' => [
-		'label'   => __( 'Featured Image', 'wem-content-types' ),
-		'example' => __( 'Example: Main product image.', 'wem-content-types' ),
+		'label'   => __( '特色图片', 'wem-content-types' ),
+		'example' => __( '示例：产品主图。', 'wem-content-types' ),
 	],
 	'excerpt' => [
-		'label'   => __( 'Excerpt', 'wem-content-types' ),
-		'example' => __( 'Example: Short product summary used in cards or lists.', 'wem-content-types' ),
+		'label'   => __( '摘要', 'wem-content-types' ),
+		'example' => __( '示例：用于卡片或列表中的产品简短摘要。', 'wem-content-types' ),
 	],
 	'revisions' => [
-		'label'   => __( 'Revisions', 'wem-content-types' ),
-		'example' => __( 'Example: Keep previous versions when content is updated.', 'wem-content-types' ),
+		'label'   => __( '修订版本', 'wem-content-types' ),
+		'example' => __( '示例：内容更新时保留历史版本。', 'wem-content-types' ),
 	],
 	'author' => [
-		'label'   => __( 'Author', 'wem-content-types' ),
-		'example' => __( 'Example: Record which WordPress user created the item.', 'wem-content-types' ),
+		'label'   => __( '作者', 'wem-content-types' ),
+		'example' => __( '示例：记录由哪个 WordPress 用户创建该内容。', 'wem-content-types' ),
 	],
 	'comments' => [
-		'label'   => __( 'Comments', 'wem-content-types' ),
-		'example' => __( 'Example: Allow visitor comments. Usually disabled for product content.', 'wem-content-types' ),
+		'label'   => __( '评论', 'wem-content-types' ),
+		'example' => __( '示例：允许访客评论；产品内容通常不需要开启。', 'wem-content-types' ),
 	],
 	'page-attributes' => [
-		'label'   => __( 'Page Attributes', 'wem-content-types' ),
-		'example' => __( 'Example: Provide ordering and page-style attributes when needed.', 'wem-content-types' ),
+		'label'   => __( '页面属性', 'wem-content-types' ),
+		'example' => __( '示例：需要时提供排序等页面属性。', 'wem-content-types' ),
 	],
 	'custom-fields' => [
-		'label'   => __( 'Custom Fields', 'wem-content-types' ),
-		'example' => __( 'Example: Enable native WordPress Custom Fields support. Usually leave this off until a field module needs it.', 'wem-content-types' ),
+		'label'   => __( '自定义字段', 'wem-content-types' ),
+		'example' => __( '示例：启用 WordPress 原生自定义字段支持。通常保持关闭，直到字段模块需要时再开启。', 'wem-content-types' ),
 	],
 ];
 
 $icon_choices = [
-	'dashicons-admin-post'    => __( 'Post', 'wem-content-types' ),
-	'dashicons-products'      => __( 'Products', 'wem-content-types' ),
-	'dashicons-portfolio'     => __( 'Portfolio', 'wem-content-types' ),
-	'dashicons-media-document'=> __( 'Document', 'wem-content-types' ),
-	'dashicons-format-gallery'=> __( 'Gallery', 'wem-content-types' ),
-	'dashicons-groups'        => __( 'Groups', 'wem-content-types' ),
-	'dashicons-businessperson'=> __( 'Business', 'wem-content-types' ),
-	'dashicons-location'      => __( 'Location', 'wem-content-types' ),
-	'dashicons-category'      => __( 'Category', 'wem-content-types' ),
-	'dashicons-feedback'      => __( 'Feedback', 'wem-content-types' ),
-	'dashicons-book'          => __( 'Book', 'wem-content-types' ),
-	'dashicons-lightbulb'     => __( 'Idea', 'wem-content-types' ),
+	'dashicons-admin-post'    => __( '文章', 'wem-content-types' ),
+	'dashicons-products'      => __( '产品', 'wem-content-types' ),
+	'dashicons-portfolio'     => __( '作品集', 'wem-content-types' ),
+	'dashicons-media-document'=> __( '文档', 'wem-content-types' ),
+	'dashicons-format-gallery'=> __( '图库', 'wem-content-types' ),
+	'dashicons-groups'        => __( '群组', 'wem-content-types' ),
+	'dashicons-businessperson'=> __( '企业', 'wem-content-types' ),
+	'dashicons-location'      => __( '位置', 'wem-content-types' ),
+	'dashicons-category'      => __( '分类', 'wem-content-types' ),
+	'dashicons-feedback'      => __( '反馈', 'wem-content-types' ),
+	'dashicons-book'          => __( '书籍', 'wem-content-types' ),
+	'dashicons-lightbulb'     => __( '创意', 'wem-content-types' ),
 ];
 ?>
 <div class="wrap wem-ct-wrap">
 	<div class="wem-ct-header">
 		<div>
-			<h1><?php echo esc_html( $is_edit ? __( 'Edit Post Type', 'wem-content-types' ) : __( 'Add Post Type', 'wem-content-types' ) ); ?></h1>
-			<p><?php esc_html_e( 'Define the content structure first. Advanced settings are optional and can usually keep their defaults.', 'wem-content-types' ); ?></p>
+			<h1><?php echo esc_html( $is_edit ? __( '编辑内容类型', 'wem-content-types' ) : __( '新建内容类型', 'wem-content-types' ) ); ?></h1>
+			<p><?php esc_html_e( '先定义内容结构即可；高级设置为可选项，通常保持默认值。', 'wem-content-types' ); ?></p>
 		</div>
-		<a class="page-title-action" href="<?php echo esc_url( add_query_arg( [ 'page' => 'wem-content-types' ], admin_url( 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Back to List', 'wem-content-types' ); ?></a>
+		<a class="page-title-action" href="<?php echo esc_url( add_query_arg( [ 'page' => 'wem-content-types' ], admin_url( 'admin.php' ) ) ); ?>"><?php esc_html_e( '返回列表', 'wem-content-types' ); ?></a>
 	</div>
 
 	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="wem-ct-form">
@@ -73,37 +73,37 @@ $icon_choices = [
 		<?php wp_nonce_field( 'wem_ct_save_post_type' ); ?>
 
 		<div class="wem-ct-card">
-			<h2><?php esc_html_e( 'Basic Settings', 'wem-content-types' ); ?></h2>
+			<h2><?php esc_html_e( '基本设置', 'wem-content-types' ); ?></h2>
 			<div class="wem-ct-grid">
 				<div class="wem-ct-field">
-					<label for="wem-ct-slug"><?php esc_html_e( 'Post Type Slug', 'wem-content-types' ); ?></label>
+					<label for="wem-ct-slug"><?php esc_html_e( '内容类型标识（Slug）', 'wem-content-types' ); ?></label>
 					<input id="wem-ct-slug" name="wem_ct[slug]" type="text" maxlength="20" value="<?php echo esc_attr( $config['slug'] ); ?>" <?php echo $is_edit ? 'readonly' : ''; ?> required pattern="[a-z0-9_-]+">
-					<p><?php esc_html_e( 'Lowercase key used internally by WordPress. Maximum 20 characters. It is locked after creation.', 'wem-content-types' ); ?></p>
-					<p class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <code>product</code>, <code>solution</code>, <code>case</code>, <code>faq</code>, <code>download</code>. <?php esc_html_e( 'A singular internal key is recommended.', 'wem-content-types' ); ?></p>
+					<p><?php esc_html_e( 'WordPress 内部使用的小写标识，最多 20 个字符；创建后将锁定，不能修改。', 'wem-content-types' ); ?></p>
+					<p class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <code>product</code>, <code>solution</code>, <code>case</code>, <code>faq</code>, <code>download</code>. <?php esc_html_e( '建议使用单数形式的内部标识。', 'wem-content-types' ); ?></p>
 				</div>
 
 				<div class="wem-ct-field">
-					<label for="wem-ct-singular"><?php esc_html_e( 'Singular Label', 'wem-content-types' ); ?></label>
+					<label for="wem-ct-singular"><?php esc_html_e( '单数名称', 'wem-content-types' ); ?></label>
 					<input id="wem-ct-singular" name="wem_ct[singular_label]" type="text" value="<?php echo esc_attr( $config['singular_label'] ); ?>" required placeholder="Product">
-					<p><?php esc_html_e( 'Name used when WordPress refers to one item.', 'wem-content-types' ); ?></p>
-					<p class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <code>Product</code></p>
+					<p><?php esc_html_e( 'WordPress 表示单个内容时使用的名称。', 'wem-content-types' ); ?></p>
+					<p class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <code>Product</code></p>
 				</div>
 
 				<div class="wem-ct-field">
-					<label for="wem-ct-plural"><?php esc_html_e( 'Plural Label', 'wem-content-types' ); ?></label>
+					<label for="wem-ct-plural"><?php esc_html_e( '复数名称', 'wem-content-types' ); ?></label>
 					<input id="wem-ct-plural" name="wem_ct[plural_label]" type="text" value="<?php echo esc_attr( $config['plural_label'] ); ?>" required placeholder="Products">
-					<p><?php esc_html_e( 'Name used for the admin menu and lists containing multiple items.', 'wem-content-types' ); ?></p>
-					<p class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <code>Products</code></p>
+					<p><?php esc_html_e( '后台菜单以及多条内容列表中使用的名称。', 'wem-content-types' ); ?></p>
+					<p class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <code>Products</code></p>
 				</div>
 
 				<div class="wem-ct-field wem-ct-icon-field">
-					<label for="wem-ct-icon"><?php esc_html_e( 'Menu Icon', 'wem-content-types' ); ?></label>
+					<label for="wem-ct-icon"><?php esc_html_e( '菜单图标', 'wem-content-types' ); ?></label>
 					<div class="wem-ct-icon-input-row">
 						<span class="wem-ct-icon-preview" aria-hidden="true"><span class="dashicons <?php echo esc_attr( $config['menu_icon'] ); ?>"></span></span>
 						<input id="wem-ct-icon" data-wem-icon-input name="wem_ct[menu_icon]" type="text" value="<?php echo esc_attr( $config['menu_icon'] ); ?>" placeholder="dashicons-products">
 					</div>
-					<p><?php esc_html_e( 'Choose a common Dashicon below or enter another Dashicons class manually.', 'wem-content-types' ); ?></p>
-					<div class="wem-ct-icon-picker" role="group" aria-label="<?php esc_attr_e( 'Common menu icons', 'wem-content-types' ); ?>">
+					<p><?php esc_html_e( '可以从下方选择常用 Dashicon，也可以手动输入其他 Dashicons 类名。', 'wem-content-types' ); ?></p>
+					<div class="wem-ct-icon-picker" role="group" aria-label="<?php esc_attr_e( '常用菜单图标', 'wem-content-types' ); ?>">
 						<?php foreach ( $icon_choices as $icon_class => $icon_label ) : ?>
 							<button type="button" class="wem-ct-icon-choice<?php echo $config['menu_icon'] === $icon_class ? ' is-selected' : ''; ?>" data-icon="<?php echo esc_attr( $icon_class ); ?>" aria-pressed="<?php echo $config['menu_icon'] === $icon_class ? 'true' : 'false'; ?>" title="<?php echo esc_attr( $icon_label ); ?>">
 								<span class="dashicons <?php echo esc_attr( $icon_class ); ?>" aria-hidden="true"></span>
@@ -111,70 +111,70 @@ $icon_choices = [
 							</button>
 						<?php endforeach; ?>
 					</div>
-					<p class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <code>dashicons-products</code></p>
+					<p class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <code>dashicons-products</code></p>
 				</div>
 			</div>
 
 			<div class="wem-ct-info">
-				<strong><?php esc_html_e( 'Labels are generated automatically.', 'wem-content-types' ); ?></strong>
-				<?php esc_html_e( 'From the singular and plural names, WEM creates labels such as Add New Product, Edit Product, Search Products, and All Products. Individual labels can still be adjusted later through the label filters.', 'wem-content-types' ); ?>
+				<strong><?php esc_html_e( '系统会自动生成常用名称。', 'wem-content-types' ); ?></strong>
+				<?php esc_html_e( 'WEM 会根据单数名称和复数名称自动生成“新建产品”“编辑产品”“搜索产品”“所有产品”等常用后台文字；如有需要，后续仍可通过 Label Filters 单独调整。', 'wem-content-types' ); ?>
 			</div>
 
 			<div class="wem-ct-field wem-ct-field-full">
-				<label for="wem-ct-description"><?php esc_html_e( 'Description', 'wem-content-types' ); ?></label>
+				<label for="wem-ct-description"><?php esc_html_e( '说明', 'wem-content-types' ); ?></label>
 				<textarea id="wem-ct-description" name="wem_ct[description]" rows="3"><?php echo esc_textarea( $config['description'] ); ?></textarea>
-				<p><?php esc_html_e( 'Optional short description of what this content type stores.', 'wem-content-types' ); ?></p>
-				<p class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <?php esc_html_e( 'Products and structured product information.', 'wem-content-types' ); ?></p>
+				<p><?php esc_html_e( '可选，用于简要说明该内容类型存储什么内容。', 'wem-content-types' ); ?></p>
+				<p class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <?php esc_html_e( '产品及其结构化产品信息。', 'wem-content-types' ); ?></p>
 			</div>
 		</div>
 
 		<div class="wem-ct-card wem-ct-status-card">
-			<h2><?php esc_html_e( 'Status', 'wem-content-types' ); ?></h2>
+			<h2><?php esc_html_e( '状态', 'wem-content-types' ); ?></h2>
 			<div class="wem-ct-checks wem-ct-checks-two">
 				<label>
 					<input type="checkbox" name="wem_ct[enabled]" value="1" <?php checked( ! empty( $config['enabled'] ) ); ?>>
 					<span>
-						<strong><?php esc_html_e( 'Enabled', 'wem-content-types' ); ?></strong>
-						<small><?php esc_html_e( 'Register this post type in WordPress. Disable it temporarily without deleting its configuration or existing posts.', 'wem-content-types' ); ?></small>
-						<small class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <?php esc_html_e( 'Disable an unused Case type during a redesign, then enable it again later.', 'wem-content-types' ); ?></small>
+						<strong><?php esc_html_e( '已启用', 'wem-content-types' ); ?></strong>
+						<small><?php esc_html_e( '在 WordPress 中注册此内容类型。关闭后只会暂时停用，不会删除配置或已有内容。', 'wem-content-types' ); ?></small>
+						<small class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <?php esc_html_e( '例如网站改版期间暂时禁用未使用的 Case 内容类型，之后可再次启用。', 'wem-content-types' ); ?></small>
 					</span>
 				</label>
 			</div>
 		</div>
 
 		<div class="wem-ct-card">
-			<h2><?php esc_html_e( 'Behavior', 'wem-content-types' ); ?></h2>
+			<h2><?php esc_html_e( '基本行为', 'wem-content-types' ); ?></h2>
 			<div class="wem-ct-checks">
 				<label>
 					<input type="checkbox" name="wem_ct[public]" value="1" <?php checked( ! empty( $config['public'] ) ); ?>>
 					<span>
-						<strong><?php esc_html_e( 'Public', 'wem-content-types' ); ?></strong>
-						<small><?php esc_html_e( 'Make this a normal visitor-facing content type.', 'wem-content-types' ); ?></small>
-						<small class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <?php esc_html_e( 'Keep enabled for Product, Solution, Case, and other public content.', 'wem-content-types' ); ?></small>
+						<strong><?php esc_html_e( '公开', 'wem-content-types' ); ?></strong>
+						<small><?php esc_html_e( '将此内容类型作为面向访客的公开内容。', 'wem-content-types' ); ?></small>
+						<small class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <?php esc_html_e( 'Product、Solution、Case 等公开内容通常保持开启。', 'wem-content-types' ); ?></small>
 					</span>
 				</label>
 				<label>
 					<input type="checkbox" name="wem_ct[has_archive]" value="1" <?php checked( ! empty( $config['has_archive'] ) ); ?>>
 					<span>
-						<strong><?php esc_html_e( 'Archive', 'wem-content-types' ); ?></strong>
-						<small><?php esc_html_e( 'Enable the post type archive URL.', 'wem-content-types' ); ?></small>
-						<small class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <?php esc_html_e( 'Enable when you need a product listing or archive page.', 'wem-content-types' ); ?></small>
+						<strong><?php esc_html_e( '归档页', 'wem-content-types' ); ?></strong>
+						<small><?php esc_html_e( '启用该内容类型的归档页 URL。', 'wem-content-types' ); ?></small>
+						<small class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <?php esc_html_e( '需要产品列表页或归档页时开启。', 'wem-content-types' ); ?></small>
 					</span>
 				</label>
 				<label>
 					<input type="checkbox" name="wem_ct[show_in_rest]" value="1" <?php checked( ! empty( $config['show_in_rest'] ) ); ?>>
 					<span>
-						<strong><?php esc_html_e( 'REST API / Block Editor', 'wem-content-types' ); ?></strong>
-						<small><?php esc_html_e( 'Recommended for modern WordPress sites and future field/API integrations.', 'wem-content-types' ); ?></small>
-						<small class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <?php esc_html_e( 'Keep enabled for Gutenberg, REST API, and future field or AI integrations.', 'wem-content-types' ); ?></small>
+						<strong><?php esc_html_e( 'REST API / 区块编辑器', 'wem-content-types' ); ?></strong>
+						<small><?php esc_html_e( '现代 WordPress 网站建议开启，也便于后续字段和 API 集成。', 'wem-content-types' ); ?></small>
+						<small class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <?php esc_html_e( '使用 Gutenberg、REST API，以及后续字段或 AI 集成时建议保持开启。', 'wem-content-types' ); ?></small>
 					</span>
 				</label>
 			</div>
 		</div>
 
 		<div class="wem-ct-card">
-			<h2><?php esc_html_e( 'Supports', 'wem-content-types' ); ?></h2>
-			<p class="wem-ct-section-help"><?php esc_html_e( 'Choose which standard WordPress editing features this post type should expose.', 'wem-content-types' ); ?></p>
+			<h2><?php esc_html_e( '编辑功能（Supports）', 'wem-content-types' ); ?></h2>
+			<p class="wem-ct-section-help"><?php esc_html_e( '选择此内容类型需要启用的 WordPress 标准编辑功能。', 'wem-content-types' ); ?></p>
 			<div class="wem-ct-supports">
 				<?php foreach ( $all_supports as $key => $item ) : ?>
 					<label>
@@ -190,71 +190,71 @@ $icon_choices = [
 
 		<details class="wem-ct-card wem-ct-advanced">
 			<summary>
-				<span><?php esc_html_e( 'Advanced Settings', 'wem-content-types' ); ?></span>
-				<small><?php esc_html_e( 'Usually keep these defaults unless the content type has a special visibility requirement.', 'wem-content-types' ); ?></small>
+				<span><?php esc_html_e( '高级设置', 'wem-content-types' ); ?></span>
+				<small><?php esc_html_e( '除非内容类型有特殊的可见性需求，否则通常保持默认值。', 'wem-content-types' ); ?></small>
 			</summary>
 			<div class="wem-ct-advanced-body">
 				<div class="wem-ct-checks wem-ct-checks-two">
 					<label>
 						<input type="checkbox" name="wem_ct[publicly_queryable]" value="1" <?php checked( ! empty( $config['publicly_queryable'] ) ); ?>>
-						<span><strong><?php esc_html_e( 'Publicly Queryable', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Allow front-end URLs and queries for individual items.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Normally enabled for public Products or Solutions.', 'wem-content-types' ); ?></small></span>
+						<span><strong><?php esc_html_e( '允许前台查询', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '允许通过前台 URL 和查询访问单条内容。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '公开的 Product 或 Solution 通常保持开启。', 'wem-content-types' ); ?></small></span>
 					</label>
 					<label>
 						<input type="checkbox" name="wem_ct[exclude_from_search]" value="1" <?php checked( ! empty( $config['exclude_from_search'] ) ); ?>>
-						<span><strong><?php esc_html_e( 'Exclude From Search', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Hide this content type from the normal WordPress front-end search results.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Useful for internal reference content that still has direct URLs.', 'wem-content-types' ); ?></small></span>
+						<span><strong><?php esc_html_e( '从搜索中排除', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '从 WordPress 前台普通搜索结果中隐藏此内容类型。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '适用于仍有独立 URL、但不希望出现在站内搜索中的内部参考内容。', 'wem-content-types' ); ?></small></span>
 					</label>
 					<label>
 						<input type="checkbox" name="wem_ct[show_ui]" value="1" <?php checked( ! empty( $config['show_ui'] ) ); ?>>
-						<span><strong><?php esc_html_e( 'Show Admin UI', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Show WordPress administration screens for this content type.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Keep enabled for content editors.', 'wem-content-types' ); ?></small></span>
+						<span><strong><?php esc_html_e( '显示后台管理界面', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '显示此内容类型的 WordPress 后台管理页面。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '需要在后台编辑内容时请保持开启。', 'wem-content-types' ); ?></small></span>
 					</label>
 					<label>
 						<input type="checkbox" name="wem_ct[show_in_menu]" value="1" <?php checked( ! empty( $config['show_in_menu'] ) ); ?>>
-						<span><strong><?php esc_html_e( 'Show in Admin Menu', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Show the content type as a normal item in the WordPress admin menu.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Usually enabled together with Show Admin UI.', 'wem-content-types' ); ?></small></span>
+						<span><strong><?php esc_html_e( '显示在后台菜单', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '在 WordPress 后台菜单中显示此内容类型。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '通常与“显示后台管理界面”一起开启。', 'wem-content-types' ); ?></small></span>
 					</label>
 					<label>
 						<input type="checkbox" name="wem_ct[show_in_nav_menus]" value="1" <?php checked( ! empty( $config['show_in_nav_menus'] ) ); ?>>
-						<span><strong><?php esc_html_e( 'Show in Navigation Menus', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Allow items from this post type to be selected in WordPress navigation menus.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Useful when products or solutions may be linked directly from menus.', 'wem-content-types' ); ?></small></span>
+						<span><strong><?php esc_html_e( '允许加入导航菜单', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '允许将此内容类型的项目添加到 WordPress 导航菜单。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '当产品或解决方案需要直接从导航菜单链接时很有用。', 'wem-content-types' ); ?></small></span>
 					</label>
 					<label>
 						<input type="checkbox" name="wem_ct[show_in_admin_bar]" value="1" <?php checked( ! empty( $config['show_in_admin_bar'] ) ); ?>>
-						<span><strong><?php esc_html_e( 'Show in Admin Bar', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Allow quick access from the WordPress admin toolbar.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Usually safe to keep enabled.', 'wem-content-types' ); ?></small></span>
+						<span><strong><?php esc_html_e( '显示在管理工具栏', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '允许从 WordPress 顶部管理工具栏快速访问。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '通常可以保持开启。', 'wem-content-types' ); ?></small></span>
 					</label>
 				</div>
 
 				<div class="wem-ct-field wem-ct-compact-field">
-					<label for="wem-ct-menu-position"><?php esc_html_e( 'Menu Position', 'wem-content-types' ); ?></label>
+					<label for="wem-ct-menu-position"><?php esc_html_e( '菜单位置', 'wem-content-types' ); ?></label>
 					<input id="wem-ct-menu-position" name="wem_ct[menu_position]" type="number" min="2" max="100" step="1" value="<?php echo esc_attr( $config['menu_position'] ); ?>" placeholder="25">
-					<p><?php esc_html_e( 'Optional. Leave empty to let WordPress choose the normal position. Use a whole number from 2 to 100.', 'wem-content-types' ); ?></p>
-					<p class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <code>25</code></p>
+					<p><?php esc_html_e( '可选。留空时由 WordPress 自动安排位置；也可以填写 2 到 100 之间的整数。', 'wem-content-types' ); ?></p>
+					<p class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <code>25</code></p>
 				</div>
 
 				<div class="wem-ct-subsection">
-					<h3><?php esc_html_e( 'Rewrite / Permalinks', 'wem-content-types' ); ?></h3>
-					<p><?php esc_html_e( 'Control the public URL base without changing the internal post type slug.', 'wem-content-types' ); ?></p>
+					<h3><?php esc_html_e( '固定链接重写（Rewrite）', 'wem-content-types' ); ?></h3>
+					<p><?php esc_html_e( '在不修改内部内容类型标识的情况下控制前台 URL 基础路径。', 'wem-content-types' ); ?></p>
 
 					<div class="wem-ct-checks wem-ct-checks-two">
 						<label>
 							<input type="checkbox" name="wem_ct[rewrite_enabled]" value="1" <?php checked( ! empty( $config['rewrite_enabled'] ) ); ?>>
-							<span><strong><?php esc_html_e( 'Rewrite URLs', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Generate normal pretty permalink rules for this post type.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Normally keep enabled for visitor-facing content.', 'wem-content-types' ); ?></small></span>
+							<span><strong><?php esc_html_e( '启用 URL 重写', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '为该内容类型生成正常的友好固定链接规则。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '面向访客的公开内容通常保持开启。', 'wem-content-types' ); ?></small></span>
 						</label>
 						<label>
 							<input type="checkbox" name="wem_ct[rewrite_with_front]" value="1" <?php checked( ! empty( $config['rewrite_with_front'] ) ); ?>>
-							<span><strong><?php esc_html_e( 'Use Permalink Front', 'wem-content-types' ); ?></strong><small><?php esc_html_e( 'Include the front prefix from the site permalink structure.', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( 'Usually leave disabled if Products should stay at /products/ instead of inheriting something like /blog/.', 'wem-content-types' ); ?></small></span>
+							<span><strong><?php esc_html_e( '使用固定链接前缀', 'wem-content-types' ); ?></strong><small><?php esc_html_e( '包含网站固定链接结构中的 front 前缀。', 'wem-content-types' ); ?></small><small class="wem-ct-example"><?php esc_html_e( '如果希望 Products 保持为 /products/，而不是继承类似 /blog/ 的前缀，通常保持关闭。', 'wem-content-types' ); ?></small></span>
 						</label>
 					</div>
 
 					<div class="wem-ct-field wem-ct-rewrite-field">
-						<label for="wem-ct-rewrite-slug"><?php esc_html_e( 'Rewrite Slug', 'wem-content-types' ); ?></label>
+						<label for="wem-ct-rewrite-slug"><?php esc_html_e( 'Rewrite 标识', 'wem-content-types' ); ?></label>
 						<input id="wem-ct-rewrite-slug" name="wem_ct[rewrite_slug]" type="text" value="<?php echo esc_attr( $config['rewrite_slug'] ); ?>" placeholder="products">
-						<p><?php esc_html_e( 'Optional URL base. Leave empty to use the internal post type slug.', 'wem-content-types' ); ?></p>
-						<p class="wem-ct-example"><strong><?php esc_html_e( 'Example:', 'wem-content-types' ); ?></strong> <?php esc_html_e( 'Internal slug', 'wem-content-types' ); ?> <code>product</code> → <?php esc_html_e( 'rewrite slug', 'wem-content-types' ); ?> <code>products</code> → <code>/products/sample-product/</code></p>
+						<p><?php esc_html_e( '可选的 URL 基础路径；留空时使用内部内容类型标识。', 'wem-content-types' ); ?></p>
+						<p class="wem-ct-example"><strong><?php esc_html_e( '示例：', 'wem-content-types' ); ?></strong> <?php esc_html_e( '内部标识', 'wem-content-types' ); ?> <code>product</code> → <?php esc_html_e( 'Rewrite 标识', 'wem-content-types' ); ?> <code>products</code> → <code>/products/sample-product/</code></p>
 					</div>
 				</div>
 			</div>
 		</details>
 
 		<p class="submit">
-			<button type="submit" class="button button-primary button-large"><?php echo esc_html( $is_edit ? __( 'Save Changes', 'wem-content-types' ) : __( 'Create Post Type', 'wem-content-types' ) ); ?></button>
+			<button type="submit" class="button button-primary button-large"><?php echo esc_html( $is_edit ? __( '保存修改', 'wem-content-types' ) : __( '创建内容类型', 'wem-content-types' ) ); ?></button>
 		</p>
 	</form>
 </div>

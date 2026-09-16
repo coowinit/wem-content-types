@@ -6,11 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wrap wem-ct-wrap">
 	<div class="wem-ct-header">
 		<div>
-			<h1><?php esc_html_e( 'WEM Content Types', 'wem-content-types' ); ?></h1>
-			<p><?php esc_html_e( 'Create and manage lightweight WordPress custom post types.', 'wem-content-types' ); ?></p>
+			<h1><?php esc_html_e( 'WEM 内容类型', 'wem-content-types' ); ?></h1>
+			<p><?php esc_html_e( '创建和管理轻量的 WordPress 自定义内容类型。', 'wem-content-types' ); ?></p>
 		</div>
 		<a class="page-title-action" href="<?php echo esc_url( add_query_arg( [ 'page' => 'wem-content-types', 'action' => 'add' ], admin_url( 'admin.php' ) ) ); ?>">
-			<?php esc_html_e( 'Add Post Type', 'wem-content-types' ); ?>
+			<?php esc_html_e( '新建内容类型', 'wem-content-types' ); ?>
 		</a>
 	</div>
 
@@ -18,11 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<table class="widefat fixed striped wem-ct-table">
 			<thead>
 			<tr>
-				<th><?php esc_html_e( 'Name', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Slug', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Status', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Public', 'wem-content-types' ); ?></th>
-				<th><?php esc_html_e( 'Archive', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '名称', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '标识（Slug）', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '状态', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '公开', 'wem-content-types' ); ?></th>
+				<th><?php esc_html_e( '归档页', 'wem-content-types' ); ?></th>
 				<th><?php esc_html_e( 'REST', 'wem-content-types' ); ?></th>
 			</tr>
 			</thead>
@@ -30,8 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( empty( $items ) ) : ?>
 				<tr>
 					<td colspan="6" class="wem-ct-empty">
-						<strong><?php esc_html_e( 'No custom post types yet.', 'wem-content-types' ); ?></strong>
-						<p><?php esc_html_e( 'Create the first content type and WEM will register it on the next WordPress init cycle.', 'wem-content-types' ); ?></p>
+						<strong><?php esc_html_e( '还没有自定义内容类型。', 'wem-content-types' ); ?></strong>
+						<p><?php esc_html_e( '创建第一个内容类型后，WEM 会在下一次 WordPress init 周期中注册它。', 'wem-content-types' ); ?></p>
 					</td>
 				</tr>
 			<?php else : ?>
@@ -52,16 +52,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<td>
 							<strong><a href="<?php echo esc_url( $edit_url ); ?>"><?php echo esc_html( $item['plural_label'] ?? $slug ); ?></a></strong>
 							<div class="row-actions">
-								<span class="edit"><a href="<?php echo esc_url( $edit_url ); ?>"><?php esc_html_e( 'Edit', 'wem-content-types' ); ?></a> | </span>
-								<span class="wem-toggle"><a href="<?php echo esc_url( $toggle_url ); ?>"><?php echo esc_html( $enabled ? __( 'Disable', 'wem-content-types' ) : __( 'Enable', 'wem-content-types' ) ); ?></a> | </span>
-								<span class="trash"><a href="<?php echo esc_url( $delete_url ); ?>" onclick="return confirm('<?php echo esc_js( __( 'Delete this post type configuration? Existing posts will remain in the database. If a WEM taxonomy still uses this post type, deletion will be blocked until you detach it.', 'wem-content-types' ) ); ?>');"><?php esc_html_e( 'Delete', 'wem-content-types' ); ?></a></span>
+								<span class="edit"><a href="<?php echo esc_url( $edit_url ); ?>"><?php esc_html_e( '编辑', 'wem-content-types' ); ?></a> | </span>
+								<span class="wem-toggle"><a href="<?php echo esc_url( $toggle_url ); ?>"><?php echo esc_html( $enabled ? __( '禁用', 'wem-content-types' ) : __( '启用', 'wem-content-types' ) ); ?></a> | </span>
+								<span class="trash"><a href="<?php echo esc_url( $delete_url ); ?>" onclick="return confirm('<?php echo esc_js( __( '确定删除此内容类型配置吗？数据库中的已有内容会保留。如果仍有 WEM 分类法关联此内容类型，需要先解除关联后才能删除。', 'wem-content-types' ) ); ?>');"><?php esc_html_e( '删除', 'wem-content-types' ); ?></a></span>
 							</div>
 						</td>
 						<td><code><?php echo esc_html( $slug ); ?></code></td>
-						<td><span class="wem-ct-status <?php echo $enabled ? 'is-enabled' : 'is-disabled'; ?>"><?php echo esc_html( $enabled ? __( 'Enabled', 'wem-content-types' ) : __( 'Disabled', 'wem-content-types' ) ); ?></span></td>
-						<td><?php echo ! empty( $item['public'] ) ? esc_html__( 'Yes', 'wem-content-types' ) : esc_html__( 'No', 'wem-content-types' ); ?></td>
-						<td><?php echo ! empty( $item['has_archive'] ) ? esc_html__( 'Yes', 'wem-content-types' ) : esc_html__( 'No', 'wem-content-types' ); ?></td>
-						<td><?php echo ! empty( $item['show_in_rest'] ) ? esc_html__( 'Yes', 'wem-content-types' ) : esc_html__( 'No', 'wem-content-types' ); ?></td>
+						<td><span class="wem-ct-status <?php echo $enabled ? 'is-enabled' : 'is-disabled'; ?>"><?php echo esc_html( $enabled ? __( '已启用', 'wem-content-types' ) : __( '已禁用', 'wem-content-types' ) ); ?></span></td>
+						<td><?php echo ! empty( $item['public'] ) ? esc_html__( '是', 'wem-content-types' ) : esc_html__( '否', 'wem-content-types' ); ?></td>
+						<td><?php echo ! empty( $item['has_archive'] ) ? esc_html__( '是', 'wem-content-types' ) : esc_html__( '否', 'wem-content-types' ); ?></td>
+						<td><?php echo ! empty( $item['show_in_rest'] ) ? esc_html__( '是', 'wem-content-types' ) : esc_html__( '否', 'wem-content-types' ); ?></td>
 					</tr>
 				<?php endforeach; ?>
 			<?php endif; ?>
